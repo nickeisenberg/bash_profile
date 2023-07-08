@@ -10,15 +10,15 @@ function ide {
 	if [ $? != 0 ]
 		then
 			tmux new-session -s $session -n editor -d  # <dif_editor_name>
-			tmux split-window -t "$session:0.0" -h 
-			tmux split-window -t "$session:0.1" -v -p 5 
+			tmux split-window -t "$session:0.0" -h -p 40
+			tmux split-window -t "$session:0.1" -v -p 5
 			tmux attach -t $session
 		else
 			tmux attach -t $session
 			tmux kill-session
 			tmux new-session -s $session -n editor -d 
-			tmux split-window -t "$session:0.0" -h 
-			tmux split-window -t "$session:0.1" -v -p 5 
+			tmux split-window -t "$session:0.0" -h
+			tmux split-window -t "$session:0.1" -v -p 5
 			tmux attach -t $session
 			echo 'SESSION ALREADY EXISTS'
 		fi
