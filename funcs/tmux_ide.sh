@@ -4,8 +4,8 @@
 # eg: python, nvim, vim, bash, etc
 # Leaving it black will default to the standard shell
 
-function ide {
-	session="new"
+function ide $1 {
+	session=$1
 	tmux has-session -t $session
 	if [ $? != 0 ]
 		then
